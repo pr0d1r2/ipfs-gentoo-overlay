@@ -1,5 +1,5 @@
 # Copyright 2015 Marcin Nowicki
-# Distributed under the terms of the MIT License
+# Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
 inherit eutils git-r3 go
