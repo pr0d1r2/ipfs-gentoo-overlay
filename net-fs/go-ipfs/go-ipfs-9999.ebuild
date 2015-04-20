@@ -2,7 +2,7 @@
 # Distributed under the terms of the MIT License
 
 EAPI=5
-inherit eutils git-r3
+inherit eutils git-r3 go
 
 DESCRIPTION="Inter Planetary File System - Go implementation"
 HOMEPAGE="https://github.com/ipfs/go-ipfs"
@@ -17,6 +17,6 @@ IUSE="fuse"
 
 DEPEND="
   >=dev-lang/go-1.4
-  fuse? ( >=sys-fs/fuse-2.9 )
+  fuse? ( dev-libs/go-fuse )
 "
 RDEPEND=""
