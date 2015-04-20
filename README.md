@@ -21,7 +21,3 @@ layman -a ipfs
 ```
 USE="fuse" ACCEPT_KEYWORDS="~amd64" emerge -av go-ipfs
 ```
-
-## WIP
-
-This is work in progress. See: https://github.com/pr0d1r2/ipfs-gentoo-overlay/issues

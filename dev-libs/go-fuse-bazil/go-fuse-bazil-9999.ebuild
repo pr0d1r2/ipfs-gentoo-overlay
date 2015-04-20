@@ -7,22 +7,18 @@ inherit git-r3
 
 RESTRICT="strip"
 
-DESCRIPTION="Inter Planetary File System - Go implementation"
-HOMEPAGE="https://github.com/ipfs/go-ipfs"
-EGIT_REPO_URI="https://github.com/ipfs/go-ipfs.git"
+DESCRIPTION="FUSE library for Go."
+HOMEPAGE="https://github.com/bazil/fuse"
+EGIT_REPO_URI="https://github.com/bazil/fuse.git"
 
-LICENSE="MIT"
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="fuse"
 
-DEPEND="
-  >=dev-lang/go-1.4
-  fuse? ( dev-libs/go-fuse-bazil )
-"
+DEPEND=">=dev-lang/go-1.4"
 RDEPEND=""
 
-GO_PN="github.com/ipfs/go-ipfs"
+GO_PN="bazil.org/fuse"
 EGIT_CHECKOUT_DIR="${S}/src/${GO_PN}"
 
 export GOPATH="${S}"
@@ -38,11 +34,7 @@ src_compile() {
 #do
     #go build -v -x -work ${GO_PN}/${d} || die
 #done
-#    go build -v -x -work ${GO_PN} || die
-for d in cmd/ipfs
-do
-    go build -v -x -work ${GO_PN}/${d} || die
-done
+    go build -v -x -work ${GO_PN} || die
 }
 
 src_install() {
@@ -50,14 +42,9 @@ src_install() {
 #do
     #go install -v -x -work ${GO_PN}/${d} || die
 #done
-#    go install -v -x -work ${GO_PN} || die
-for d in cmd/ipfs
-do
-    go install -v -x -work ${GO_PN}/${d} || die
-done
+    go install -v -x -work ${GO_PN} || die
 
 insinto /usr/lib/go/
-dobin "bin/ipfs"
 doins -r "${S}/pkg"
 insinto "/usr/lib/go/src/pkg/${GO_PN}/"
 #for this ebuild, to fix bug #503324 I have limited what is installed
