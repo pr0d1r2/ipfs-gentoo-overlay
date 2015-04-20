@@ -1,0 +1,11 @@
+<repositories version="1.0">
+	<repo quality="experimental" status="unofficial">
+		<name>ipfs</name>
+		<description lang="en">Gentoo overlay with IPFS (Inter Planetary File System)</description>
+		<homepage>https://github.com/pr0d1r2/ipfs-gentoo-overlay</homepage>
+		<owner type="person">
+			<name>Marcin Nowicki</name>
+		</owner>
+		<source type="git">git://github.com/pr0d1r2/ipfs-gentoo-overlay.git</source>
+	</repo>
+</repositories>
