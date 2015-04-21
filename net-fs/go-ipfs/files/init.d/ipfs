@@ -1,0 +1,24 @@
+#!/sbin/runscript
+
+depend() {
+  need net
+}
+
+start() {
+  ebegin "Starting IPFS daemon"
+  daemonize -e /var/log/ipfs.error.log \
+            -o /var/log/ipfs.log \
+            -p /var/run/ipfs.pid \
+            -l /var/lock/ipfs.lock \
+            /usr/bin/ipfs daemon
+  eend $?
+}
+
+stop() {
+  ebegin "Stopping IPFS daemon"
+  if [ -f /var/run/ipfs.pid ]; then
+    kill `cat /var/run/ipfs.pid` && \
+    rm -f /var/lock/ipfs.lock
+  fi
+  eend $?
+}

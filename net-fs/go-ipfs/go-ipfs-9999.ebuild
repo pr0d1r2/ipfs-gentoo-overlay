@@ -14,11 +14,11 @@ EGIT_REPO_URI="https://github.com/ipfs/go-ipfs.git"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="fuse"
 
 DEPEND="
   >=dev-lang/go-1.4
-  fuse? ( dev-libs/go-fuse-bazil )
+  dev-libs/go-fuse-bazil
+  sys-apps/daemonize
 "
 RDEPEND=""
 
@@ -67,4 +67,6 @@ rm -r "${S}/src/${GO_PN}/.git"
 #doins -r "${S}/src/${GO_PN}/fuse"
 #doins -r "${S}/src/${GO_PN}/splice"
 doins -r "${S}/src/${GO_PN}"
+
+doinitd ${FILESDIR}/init.d/ipfs
 }
