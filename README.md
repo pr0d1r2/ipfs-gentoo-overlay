@@ -23,5 +23,6 @@ USE="fuse" ACCEPT_KEYWORDS="~amd64" emerge -av go-ipfs
 ```
 * Then start daemon:
 ```
-/etc/init.d/ipfs start
+/etc/init.d/ipfs-daemon start
+/etc/init.d/ipfs-mount start
 ```

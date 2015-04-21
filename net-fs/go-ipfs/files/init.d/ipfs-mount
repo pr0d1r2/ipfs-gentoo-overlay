@@ -1,0 +1,31 @@
+#!/sbin/runscript
+
+depend() {
+  need ipfs-daemon
+}
+
+start() {
+  ebegin "Mounting IPFS"
+  CNT=0
+  while [ $CNT -lt 10 ]
+  do
+    /usr/bin/ipfs mount 2>/dev/null
+    ERR=$?
+    if [ $ERR -eq 0 ]; then
+      break
+    else
+      if [ $CNT -lt 9 ]; then
+        /bin/echo "Waiting for ipfs-daemon ..."
+        /usr/bin/sleep 1
+      fi
+    fi
+    CNT=`expr $CNT + 1`
+  done
+  eend $ERR
+}
+
+stop() {
+  ebegin "Unmounting IPFS"
+  /bin/umount /ipns /ipfs
+  eend $?
+}

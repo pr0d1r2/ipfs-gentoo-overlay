@@ -68,5 +68,8 @@ rm -r "${S}/src/${GO_PN}/.git"
 #doins -r "${S}/src/${GO_PN}/splice"
 doins -r "${S}/src/${GO_PN}"
 
-doinitd ${FILESDIR}/init.d/ipfs
+dodir /ipfs
+dodir /ipns
+doinitd ${FILESDIR}/init.d/ipfs-daemon
+doinitd ${FILESDIR}/init.d/ipfs-mount
 }
