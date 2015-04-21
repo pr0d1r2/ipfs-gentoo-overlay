@@ -21,3 +21,7 @@ layman -a ipfs
 ```
 USE="fuse" ACCEPT_KEYWORDS="~amd64" emerge -av go-ipfs
 ```
+* Then start daemon:
+```
+/etc/init.d/ipfs start
+```
